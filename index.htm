@@ -1,1 +1,71 @@
-hello
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>xnet</title>
+
+   
+<link rel="icon" href="/img/logo.gif" type="image/x-icon" />
+<link rel="bookmark" href="/img/logo.gif" type="image/x-icon" /> 
+
+<link rel="stylesheet" type="text/css" href="/css/base.css">
+<link rel="stylesheet" type="text/css" href="/css/container.css">
+
+<script src="/js/jquery/jquery.js"></script>
+<script src="/js/my/copyright.js"></script>
+<script src="/js/my/string/string.js"></script>
+<script src="/js/my/toolbar/toolbar.js"></script>
+
+</head>
+
+<body>
+
+<!-- TopBar Begin -->
+<div class="TopBar">
+	<img class="Logo" src="/img/logo.gif" />
+</div>
+<!-- TopBar End -->
+
+<!-- ToolBar Begin -->
+<script>
+	var toolbar = ToolBar_Create();
+	toolbar.AddList("首页@/,下载@/download.htm");
+	toolbar.AddList("关于@/about.htm, "right");
+	toolbar.SetCurrentName("首页");
+	toolbar.Write();
+</script>
+	
+<!-- ToolBar End -->
+
+<!-- container Begin -->
+<div class="Container">
+
+	<div class="Container-Row" style="background:#1E3A5E">
+		<img src="/img/topic.png" width="100%"/>
+	</div>
+
+	<div class="Container-Block">
+		<div class="Title">公告</div>
+		<div class="Context">
+			<li>欢迎使用</li>
+			<li><a href="/pvp/instruction/intro.php">介绍</a></li>
+		</div>
+	</div>
+
+	<div class="Container-Block">
+		<div class="Title">使用说明</div>
+		<div class="Context">
+			<li><a href="/pvp/instruction/buildvpn/buildvpn.php">如何组建房间</a></li>
+		</div>
+	</div>
+	
+</div>
+<!-- container End -->
+
+<div id="copyright"></div>
+
+</body>
+
+</html>
+
