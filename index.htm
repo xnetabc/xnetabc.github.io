@@ -27,14 +27,8 @@
 <!-- TopBar End -->
 
 <!-- ToolBar Begin -->
-<script>
-	var toolbar = ToolBar_Create();
-	toolbar.AddList("首页@/,下载@/download.htm");
-	toolbar.AddList("关于@/about.htm", "right");
-	toolbar.SetCurrentName("首页");
-	toolbar.Write();
-</script>
-	
+<script> var current_page = "首页"; </script>
+<script src="/xnets/toolbar/toolbar.js"></script>
 <!-- ToolBar End -->
 
 <!-- container Begin -->
@@ -45,21 +39,20 @@
 	</div>
 -->
 
-	<div class="Container-Row">
-		<div class="Title">公告</div>
+	<div class="Container-Block" style="width:300px" >
+		<div class="Title">远程访问</div>
 		<div class="Context">
-			<li>欢迎使用</li>
-			<li><a href="/pvp/instruction/intro.php">介绍</a></li>
+            可以在多地之间互相访问自己的计算机
 		</div>
 	</div>
 
-	<div class="Container-Row">
-		<div class="Title">使用说明</div>
+	<div class="Container-Block">
+		<div class="Title">端口映射</div>
 		<div class="Context">
-			<li><a href="/pvp/instruction/buildvpn/buildvpn.php">如何组建房间</a></li>
+			将本地计算机服务映射到公网,在异地就像是访问公网一样访问本地计算机
 		</div>
 	</div>
-	
+
 </div>
 <!-- container End -->
 
