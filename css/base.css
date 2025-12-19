@@ -1,123 +1,196 @@
+/* ==========================================================================
+   全局重置和基础样式
+   ========================================================================== */
 
+/* 基础重置 */
 html, body {
   margin: 0;
   padding: 0;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-blockquote,
-pre,
-a,
-abbr,
-acronym,
-address,
-cite,
-code,
-del,
-dfn,
-em,
-img,
-q,
-s,
-samp,
-small,
-strike,
-strong,
-sub,
-sup,
-tt,
-var,
-dd,
-dl,
-dt,
-li,
-ol,
-ul,
-fieldset,
-form,
-label,
-legend,
-button,
-table,
-caption,
-tbody,
-tfoot,
-thead,
-tr,
-th,
-td {
+/* 通用元素重置 */
+/* 使用更现代的选择器方式提高可读性 */
+:where(
+  h1, h2, h3, h4, h5, h6,
+  p, blockquote, pre,
+  a, abbr, acronym, address,
+  cite, code, del, dfn, em,
+  img, q, s, samp, small,
+  strike, strong, sub, sup,
+  tt, var,
+  dd, dl, dt,
+  li, ol, ul,
+  fieldset, form, label, legend,
+  button,
+  table, caption, tbody,
+  tfoot, thead, tr, th, td
+) {
   margin: 0;
   padding: 0;
   border: 0;
-  line-height:20px;
+  line-height: 1.4286; /* 改用相对单位 */
   font-weight: normal;
   font-style: normal;
   font-family: inherit;
 }
 
-a:link { text-decoration: none;color: #000099;}
-a:visited { text-decoration: none;color: #000099;} 
-a:hover { text-decoration:underline; color: #FF6600;} 
-a:active { text-decoration:blink; color: #FF6600;}
+/* ==========================================================================
+   链接样式
+   ========================================================================== */
+
+/* 链接状态 - 使用更语义化的颜色名 */
+a {
+  text-decoration: none;
+  color: #0066cc; /* 更现代的蓝色 */
+  transition: color 0.2s ease, text-decoration 0.2s ease;
+}
+
+a:visited {
+  color: #7c4dff; /* 已访问链接使用不同颜色 */
+}
+
+a:hover {
+  text-decoration: underline;
+  color: #ff5722; /* 更现代的橙色 */
+}
+
+a:active {
+  color: #ff5722;
+  opacity: 0.8;
+}
+
+/* ==========================================================================
+   主体样式
+   ========================================================================== */
 
 body {
-	font-size: 14px;
-	background-color: #f0f0f0;
+  font-size: 14px;
+  background-color: #f8f9fa; /* 更柔和的背景色 */
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  line-height: 1.5;
+  color: #333;
 }
 
+/* ==========================================================================
+   表单元素样式
+   ========================================================================== */
+
+/* 输入框基础样式 */
 input {
-	width:150px;
-	border: 1px solid #a3b8cb;
-	background: #fff;
+  width: 150px;
+  border: 1px solid #ced4da;
+  background: #ffffff;
+  border-radius: 4px;
+  padding: 6px 12px;
+  font-size: 14px;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
 }
 
-input:focus, textarea:focus, input.sffocus {
-	background: #cfc;
-	border-color: #090;
+/* 焦点状态 */
+input:focus,
+textarea:focus,
+input.sffocus {
+  background: #e8f5e8;
+  border-color: #28a745;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(40, 167, 69, 0.1);
 }
 
+/* ==========================================================================
+   输入验证状态
+   ========================================================================== */
+
+/* 必需字段标记 */
 .input_must {
-	color: red;
+  color: #dc3545;
+  font-weight: bold;
 }
 
+/* 提示文本 */
 .input_tip {
-	color: #7a7a7a;
+  color: #6c757d;
+  font-size: 0.875em;
+  margin-top: 4px;
 }
 
-.input_err, .input_ok, .input_checking {
-	background:url(/img/check.gif) no-repeat 1000px 1000px;
-	display:inline-block;
-	font-family:Verdana,Geneva,sans-serif;
-	font-size:12px;
-	line-height:14px;
-	vertical-align:middle;
-}
-
-.input_err {
-	background-position:-65px -65px;
-	background-color:#faf7e3;
-	border:1px solid #f7dea3;
-	padding:4px 4px 4px 20px;
-}
-
-.input_ok {
-	height:12px;
-	background-position:-7px -126px;
-	border:none;
-	background-color:transparent;
-	padding:4px 4px 4px 20px;
-}
-
+/* 验证状态基础类 */
+.input_err,
+.input_ok,
 .input_checking {
-	background-position:-94px -36px;
-	background-color:#faf7e3;
-	border:1px solid #f7dea3;
-	padding:4px 4px 4px 25px;
+  background-repeat: no-repeat;
+  background-position: 1000px 1000px; /* 隐藏默认背景 */
+  display: inline-block;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  font-size: 12px;
+  line-height: 14px;
+  vertical-align: middle;
+  border-radius: 3px;
+  padding: 4px;
+  transition: all 0.3s ease;
 }
 
+/* 错误状态 */
+.input_err {
+  background-position: -65px -65px;
+  background-color: #fff3cd;
+  border: 1px solid #ffeaa7;
+  padding-left: 20px;
+  color: #856404;
+}
+
+/* 成功状态 */
+.input_ok {
+  background-position: -7px -126px;
+  background-color: transparent;
+  border: none;
+  padding-left: 20px;
+  color: #28a745;
+}
+
+/* 验证中状态 */
+.input_checking {
+  background-position: -94px -36px;
+  background-color: #e7f5ff;
+  border: 1px solid #b3e0ff;
+  padding-left: 25px;
+  color: #0056b3;
+}
+
+/* ==========================================================================
+   响应式调整
+   ========================================================================== */
+
+@media (max-width: 768px) {
+  input {
+    width: 100%;
+    max-width: 300px;
+  }
+  
+  body {
+    font-size: 16px; /* 移动端增大字号 */
+  }
+}
+
+/* 暗色模式支持 */
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #121212;
+    color: #e0e0e0;
+  }
+  
+  input {
+    background-color: #2d2d2d;
+    border-color: #444;
+    color: #fff;
+  }
+  
+  input:focus {
+    background-color: #1e4620;
+    border-color: #4caf50;
+  }
+  
+  .input_tip {
+    color: #aaa;
+  }
+}
