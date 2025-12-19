@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>xnets</title>
+   
+<link rel="stylesheet" type="text/css" href="/css/base.css">
+<link rel="stylesheet" type="text/css" href="/css/container.css">
+<link rel="stylesheet" type="text/css" href="/js/my/toolbar/toolbar.css">
+
+<script src="/js/jquery/jquery.js"></script>
+<script src="/js/my/copyright.js"></script>
+<script src="/js/my/string/string.js"></script>
+<script src="/js/my/toolbar/toolbar.js"></script>
+
+</head>
+
+<body>
+
+<!-- ToolBar Begin -->
+<script> var menu_current_page = "XNETS"; </script>
+<script src="/menu.js"></script>
+<!-- ToolBar End -->
+
+<!-- container Begin -->
+<div class="Container">
+
+	<div class="Container-Block">
+		<div class="Title">下载</div>
+		<div class="Content">
+            <li><a href="download/xnetc_macos_apple_v0.1.zip">macos apple芯片</a></li>
+            <li><a href="download/xnetc_macos_intel_v0.1.zip">macos intel芯片</a></li>
+            <li><a href="download/xnetc_linux_arm64_v0.1.tar.gz">linux arm64</a></li>
+            <li><a href="download/xnetc_linux_x64_v0.1.tar.gz">linux x64</a></li>
+            <li><a href="download/xnetc_windows_v0.1.zip">windows</a></li>
+        </div>
+	</div>	
+
+	<div class="Container-Block">
+	<div class="Title">客户端功能</div>
+		<div class="Content">
+            <li>组建自己的VPC网络, 并和其他用户隔离 </li>
+            <li>支持内网穿透, 避免通过服务器中转, 以提升性能和体验</li>
+            <li>支持将内网服务映射到公网</li>
+		</div>
+	</div>
+
+	<div class="Container-Block">
+		<div class="Title">基础公网服务</div>
+		<div class="Content">
+			<li>端口映射: 将本地计算机服务映射到公网</li>
+            <li>HTTP/SSL转发: 公网服务节点将用户的HTTP/SSL请求代理给VPC内部的服务器</li>
+            <li>Windows远程桌面: 通过公网节点访问VPC内部的Windows远程桌面服务</li>
+		</div>
+	</div>
+
+	<div class="Container-Block">
+		<div class="Title">高级公网服务</div>
+		<div class="Content">
+            <li>公网IP转发: 通过访问公网节点, 用户就像是在访问内部网络</li>
+		</div>
+	</div>
+
+	<div class="Container-Block">
+		<div class="Title">安全控制</div>
+		<div class="Content">
+            <li>采用ACL实现IP/Port级别的权限控制, 保障用户VPC内部安全</li>
+            <li>对用户报文进行加密传输</li>
+            <li>通过Token控制公网服务的准入</li>
+		</div>
+	</div>
+
+</div>
+<!-- container End -->
+
+<div id="copyright"></div>
+
+</body>
+
+</html>
+
+

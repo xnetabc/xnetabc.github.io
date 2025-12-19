@@ -1,0 +1,140 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>SPF</title>
+   
+<link rel="stylesheet" type="text/css" href="/css/base.css">
+<link rel="stylesheet" type="text/css" href="/css/container.css">
+<link rel="stylesheet" type="text/css" href="/js/my/toolbar/toolbar.css">
+
+<script src="/js/jquery/jquery.js"></script>
+<script src="/js/my/copyright.js"></script>
+<script src="/js/my/string/string.js"></script>
+<script src="/js/my/toolbar/toolbar.js"></script>
+
+</head>
+
+<body>
+
+<!-- ToolBar Begin -->
+<script> var menu_current_page = "SPF"; </script>
+<script src="/menu.js"></script>
+<!-- ToolBar End -->
+
+<!-- container Begin -->
+<div class="Container">
+
+	<div class="Container-Row">
+		<div class="Title">下载</div>
+		<div class="Content">
+            <li><a href="download/spf_v0.0.1.zip">SPF下载</a></li>
+            <li><a href="https://github.com/windgorain/mybpf">github地址: https://github.com/windgorain/mybpf </a></li>
+        </div>
+	</div>	
+
+	<div class="Container-Row">
+	<div class="Title">说明</div>
+		<div class="Content">
+
+<h2>功能</h2>
+<li>一款轻量的运行时，可以在用户态、嵌入式、内核等多种环境运行。支持多种方式运行：字节码解释执行、jit成本机指令执行、编译为SPF/BARE文件运行。</li>
+
+<h2>特点</h2>
+<li>轻量：runtime极度轻量，能以极低的代价到处移植</li>
+<li>兼容：兼容多种运行环境，包括嵌入式、内核、用户态、跨OS、跨硬件平台</li>
+<li>灵活：APP开发难度低，部署灵活快速，可以快上快下，可以动态加载、卸载APP</li>
+<li>高性能：可以编译为本地指令执行</li>
+<li>节省空间：BARE和SPF格式文件非常小，占用空间小</li>
+
+<h2>架构</h2>
+<li>spf系统主要分为两部分： 编译工具 + runtime。</li>
+<li>编译工具支持将源文件编译为SPF/BARE文件</li>
+<li>runtime负责运行SPF/BARE文件</li>
+
+<h2>文件格式</h2>
+<li>当前支持两种目标指令集：ARM64和X86-64 支持输出两种不同的文件格式：SPF格式和BARE格式。</li>
+<li>BARE格式较简单，支持bss全局变量(不支持data, rodata), 支持内部子函数、支持helper。不支持map。</li>
+<li>SPF格式比BARE格式复杂(但也比elf要简单)，支持全局变量(bss、data、rodata)、子函数、map、helper。</li>
+
+<h2>编译</h2>
+<li>
+cd spf<br>
+这里有两个build_xxx.sh文件，分别是不同环境下的编译脚本<br><br>
+在MACOS机器上 <br>
+./build_macos.sh <br><br>
+在Linux机器上 <br>
+./build_linux.sh </br><br>
+编译结果在: build/out/spf/<br>
+</li>
+
+
+<h2>使用示例</h2>
+<li>
+cd spf <br><br>
+
+# ./build_mac.sh 或者 ./build_linux.sh <br>
+# 本例以linux上执行为例 <br>
+./build_linux.sh <br><br>
+
+cd build/out/spf <br>
+cp -r ../../../loader/* ./ <br>
+cp ../../../example/*.o ./ <br>
+ <br>
+# 执行示例 <br>
+./spfcmd hello_world.o <br>
+./spfcmd app/lua5.1.spf -e "print('hello world')" <br>
+ <br>
+# 先转换为spf文件再执行 <br>
+./spfbuilder convert hello_world.o -o hello_world.spf -j <br>
+./spfcmd hello_world.spf <br>
+ <br>
+# 转换为bare文件执行 <br>
+./barebuilder convert hello_world.o -o hello_world.bare <br>
+./bare-cmd hello_world.bare <br>
+</li>
+
+<h2>编写APP 示例</h2>
+<li> 到 example 目录 创建 hello_world.c, 输入以下内容: </li>
+<pre>
+            #include "utl/ulc_user.h"
+            SEC("tcmd/hello_test")
+            int main()
+            {
+                BPF_Print("Hello world!! \n");
+                return 0;
+            }
+</pre>
+
+<li>
+编译成ebpf字节码文件: <br>
+clang -O2 -I ../h -target bpf -c hello_world.c  -D IN_ULC_USER   <br>
+</li>
+
+<h2>APP说明</h2>
+<li> lua5.1.spf: 将lua5.1编译成了spf格式文件. 不支持浮点数运算 </li>
+<li> loader_cmd.spf: 交互式spf运行时</li>
+<li> nc_server.spf:	nc服务器</li>
+
+<h2>runtime说明</h2>
+<li> bare-cmd: 运行BARE文件 </li>
+<li> bare-interactive: 以交互模式运行BARE文件 </li>
+<li> spfcmd: 运行SPF文件的runtime </li>
+<li> mini: 非常小的bare runtime示例 </li>
+<li> uboot: 在uboot中嵌入运行时 </li>
+<li> ovs: 在ovs中嵌入运行时 </li>
+
+
+		</div>
+	</div>
+</div>
+<!-- container End -->
+
+<div id="copyright"></div>
+
+</body>
+
+</html>
+
+
