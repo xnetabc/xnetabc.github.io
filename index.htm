@@ -28,31 +28,48 @@
 <!-- TopBar End -->
 
 <!-- ToolBar Begin -->
-<script> var current_page = "首页"; </script>
-<script src="/xnets/toolbar/toolbar.js"></script>
+<script> var menu_current_page = "首页"; </script>
+<script src="menu.js"></script>
 <!-- ToolBar End -->
 
 <!-- container Begin -->
 <div class="Container">
-<!--
-	<div class="Container-Row" style="background:#1E3A5E">
-		<img src="/img/topic.png" width="100%"/>
-	</div>
--->
 
-	<div class="Container-Block" style="width:300px" >
-		<div class="Title">远程访问</div>
-		<div class="Context">
-            可以在多地之间互相访问自己的计算机
-		</div>
-	</div>
-
+    <a href="mgw/index.htm">
 	<div class="Container-Block">
-		<div class="Title">端口映射</div>
-		<div class="Context">
-			将本地计算机服务映射到公网,在异地就像是访问公网一样访问本地计算机
+		<div class="Title">MGW系统</div>
+		<div class="Content">
+			微网关系统, 采用ebpf技术, 在内核方便的编排各种微型网关组件
 		</div>
 	</div>
+    </a>
+
+    <a href="spf/index.htm">
+	<div class="Container-Block" style="width:300px" >
+		<div class="Title">SPF系统</div>
+		<div class="Content">
+            一款轻量的运行时
+		</div>
+	</div>
+    </a>
+
+    <a href="klc/index.htm">
+	<div class="Container-Block" style="width:300px" >
+		<div class="Title">KLC系统</div>
+		<div class="Content">
+            内核级别环境(Kernel Level Content), 用于支撑SPF文件在内核运行
+		</div>
+	</div>
+    </a>
+
+    <a href="xnets/index.htm">
+	<div class="Container-Block" style="width:300px" >
+		<div class="Title">Xnets系统</div>
+		<div class="Content">
+            用于内网穿透, 可以在各地组建自己的VPC, 并将服务映射到公网
+		</div>
+	</div>
+    </a>
 
 </div>
 <!-- container End -->
