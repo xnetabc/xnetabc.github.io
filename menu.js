@@ -6,7 +6,6 @@ toolbar.Add("MGW", "/mgw/index.htm", "left");
 toolbar.Add("SPF", "/spf/index.htm", "left");
 toolbar.Add("KLC", "/klc/index.htm", "left");
 toolbar.Add("XNETS", "/xnets/index.htm", "left");
-toolbar.Add("关于", "/about/about.htm", "right");
 
 toolbar.SetCurrentName(menu_current_page);
 
